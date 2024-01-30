@@ -587,7 +587,7 @@ footer{
     }
     nav ul li img{
     height: 30px;
-    width: 50%;
+    width: 30%;
         object-fit:cover;
     }
 }
