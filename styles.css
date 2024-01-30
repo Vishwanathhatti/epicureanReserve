@@ -48,7 +48,7 @@ nav li{
     transition: 0.3s ease-in-out;
 }
 nav ul li img{
-    /* height: 70px; */
+    height: 70px; 
     width: 80%;
 }
 nav li:hover{
