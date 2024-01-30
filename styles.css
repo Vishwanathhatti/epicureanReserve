@@ -572,11 +572,18 @@ footer{
     .history h1{
         font-size: 35px;
     }
-    .history p{
-        font-size: 20px;
-    }
+
     #history{
         margin: 0;
+    }
+        #heading h1{
+        font-size: 50px;
+    }
+    .card{
+        height: auto;
+    }
+    .inside-history p{
+        font-size: 17px;
     }
 }
 
@@ -585,7 +592,7 @@ footer{
         height: 60px;
     }
     #heading h1{
-        font-size: 60px;
+        font-size: 50px;
     }
-    
+
 }
