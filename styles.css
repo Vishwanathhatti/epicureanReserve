@@ -47,6 +47,10 @@ nav li{
     align-items: center;
     transition: 0.3s ease-in-out;
 }
+nav ul li img{
+    /* height: 70px; */
+    width: 80%;
+}
 nav li:hover{
     /* background-color: rgba(255, 255, 255, 0.604); */
     transform: scale(1.2);
