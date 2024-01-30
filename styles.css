@@ -585,6 +585,11 @@ footer{
     .inside-history p{
         font-size: 17px;
     }
+    nav ul li img{
+    /* height: 70px; */
+    width: 50%;
+        object-fit:cover;
+    }
 }
 
 @media screen and (max-width:400px){
