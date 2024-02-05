@@ -86,24 +86,3 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-//1. DOMContentLoaded Event: This event is fired when the initial HTML document has been completely loaded and parsed, 
-// without waiting for stylesheets, images, and subframes to finish loading. 
-// It ensures that the script runs after the HTML is fully loaded.
-
-//2. Variables: testimonialsContainer: Stores a reference to the testimonials container.
-// cardWidth: Retrieves the width of a single testimonial card.
-
-
-// 3. Event Listeners: mouseover: Sets isHovered to true and changes the cursor style to 'grab' when the mouse is over the testimonials container.
-// mouseout: Sets isHovered to false and changes the cursor style back to 'auto' when the mouse leaves the testimonials container.
-// mousedown: Sets isGrabbed to true and stores the initial mouse position when the user clicks and holds the mouse button.
-// mouseup: Sets isGrabbed to false and resets the initial mouse position when the user releases the mouse button.
-// mousemove: Adjusts the scroll position when isGrabbed is true (user is dragging).
-
-//4. scrollTestimonials Function: Checks if automatic scrolling is allowed (not hovered and not grabbed).
-// Scrolls the container to the next card with a smooth behavior.
-// If the end of the container is reached, scrolls back to the beginning.
-
-//5. setInterval: Calls the scrollTestimonials function at regular intervals, enabling automatic scrolling.
-// This script provides functionality for both automatic scrolling and manual scrolling (dragging) based on user interaction.
