@@ -51,7 +51,7 @@ nav ul li img{
     height: 70px; 
     width: 80%;
 }
-nav li:hover{
+nav #ul li:nth-child(n+2):hover{
     /* background-color: rgba(255, 255, 255, 0.604); */
     transform: scale(1.2);
 }
