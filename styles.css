@@ -96,12 +96,8 @@ nav li:first-child{
 .sidebar li:hover{
     transform: scale(1);
 }
-.sidebar li:first-child{
-    justify-content: flex-start;
-    margin-left: 15px;
-    border-bottom: 0;
-}
-.sidebar li:nth-child(n+2):hover{
+
+.sidebar li:hover{
     background-color: rgba(255, 255, 255, 0.899);
 }
 
