@@ -1,15 +1,31 @@
 
+var navbar= document.querySelector('#openNav');
 
-function openSideBar(){
-    const sidebar= document.querySelector('.sidebar');
-    sidebar.style.display='flex';
+var sidebar= document.querySelector('.sidebar');
+
+function openNav(){
+  navbar.addEventListener('click',function(){
+    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+      sidebar.style.display = 'flex';
+  } else {
+      sidebar.style.display = 'none';
+  }
+  });
+
+  document.addEventListener("click", function(event) {
+    var isClickInsideNavbar = sidebar.contains(event.target);
+    var isClickInsideHamburger = navbar.contains(event.target);
+
+    if (!isClickInsideNavbar && !isClickInsideHamburger) {
+        sidebar.style.display = 'none';
+    }
+});
+
 }
 
-function closeSideBar(){
-    const sidebar= document.querySelector('.sidebar');
-    sidebar.style.display='none';
-    
-}
+
+openNav();
+
 document.querySelectorAll('.faq-info').forEach(function (faqInfo) {
     faqInfo.addEventListener('click', function () {
         this.parentNode.classList.toggle('show-answer');
