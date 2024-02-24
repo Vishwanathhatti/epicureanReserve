@@ -35,70 +35,38 @@ document.querySelectorAll('.faq-info').forEach(function (faqInfo) {
 // This part is done using chat-gpt.
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Get the testimonials container and the width of a single card
-  const testimonialsContainer = document.getElementById('testimonialsContainer');
-  const cardWidth = testimonialsContainer.querySelector('.test-card').offsetWidth;
 
-  // Set the scroll interval (adjust as needed)
-  const scrollInterval = 2000;
+  const cardsContainer = document.querySelector('.testinomial');
+  const cardWidth = document.querySelector('.test-card').offsetWidth;
+  let intervalId;
 
-  // Flags to track hover and grab (drag) states
-  let isHovered = false;
-  let isGrabbed = false;
+  function moveToNextCard() {
+    const firstCard = document.querySelector('.test-card:first-child');
+    const nextCard = firstCard.nextElementSibling;
+    cardsContainer.appendChild(firstCard);
+    cardsContainer.style.transition = 'none';
+    cardsContainer.style.transform = `translateX(${cardWidth}px)`;
 
-  // Variable to store the initial mouse position when dragging starts
-  let startX = 0;
-
-  // Event listener for mouseover: Set isHovered to true and change cursor style
-  testimonialsContainer.addEventListener('mouseover', () => {
-    isHovered = true;
-    testimonialsContainer.style.cursor = 'grab';
-  });
-
-  // Event listener for mouseout: Set isHovered to false and change cursor style
-  testimonialsContainer.addEventListener('mouseout', () => {
-    isHovered = false;
-    testimonialsContainer.style.cursor = 'auto';
-  });
-
-  // Event listener for mousedown: Set isGrabbed to true and store initial mouse position
-  testimonialsContainer.addEventListener('mousedown', (e) => {
-    isGrabbed = true;
-    startX = e.clientX;
-  });
-
-  // Event listener for mouseup: Set isGrabbed to false and reset initial mouse position
-  testimonialsContainer.addEventListener('mouseup', () => {
-    isGrabbed = false;
-    startX = 0;
-  });
-
-  // Event listener for mousemove: Adjust scroll position when dragging
-  testimonialsContainer.addEventListener('mousemove', (e) => {
-    if (isGrabbed) {
-      const deltaX = e.clientX - startX;
-      testimonialsContainer.scrollLeft -= deltaX;
-      startX = e.clientX;
-    }
-  });
-
-  // Function to handle automatic scrolling
-  function scrollTestimonials() {
-    if (!isHovered && !isGrabbed) {
-      testimonialsContainer.scrollTo({
-        left: testimonialsContainer.scrollLeft + cardWidth,
-        behavior: 'smooth',
-      });
-
-      // If reached the end, scroll back to the beginning
-      if (testimonialsContainer.scrollLeft >= testimonialsContainer.scrollWidth - testimonialsContainer.clientWidth) {
-        testimonialsContainer.scrollTo({ left: 0, behavior: 'smooth' });
-      }
-    }
+    setTimeout(() => {
+      cardsContainer.style.transition = 'transform 0.7s ease';
+      cardsContainer.style.transform = 'translateX(0)';
+    }, 50);
   }
 
-  // Set an interval to call the scrollTestimonials function at the specified interval
-  setInterval(scrollTestimonials, scrollInterval);
-});
+  function stopInterval() {
+    clearInterval(intervalId);
+  }
 
+  function startInterval() {
+    intervalId = setInterval(moveToNextCard, 5000); // Move to next card every 5 seconds
+  }
+
+  startInterval(); // Start interval initially
+
+  cardsContainer.addEventListener('mouseover', stopInterval); // Stop interval on hover
+  cardsContainer.addEventListener('mouseout', startInterval); // Resume interval on mouseout
+
+
+
+})
 
