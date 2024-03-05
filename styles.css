@@ -846,6 +846,9 @@ footer{
     .card{
         height: auto;
     }
+        .heading-info h1{
+        font-size: 65px;
+    }
 }
 
 @media screen and (max-width:400px){
