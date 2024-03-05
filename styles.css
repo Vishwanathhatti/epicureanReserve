@@ -588,7 +588,7 @@ overflow: hidden;
   .chefInfo{
     display: flex;
     flex-direction: column;
-    transform: translate(0%, -50%);
+    transform: translate(0%, -40%);
     width: 100%;
     justify-content: space-around;
     transition: transform 0.3s ease-in-out;
